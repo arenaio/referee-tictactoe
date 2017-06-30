@@ -70,9 +70,8 @@ public class Referee extends MultiReferee {
 
         try {
             if (line.length() != 5) throw new InvalidInputException(EXPECTED, line);
-            int input = Integer.parseInt(line.substring(4, 4));
+            int input = Integer.parseInt(line.substring(4, 5));
             if (input < 0 || input > 8) throw new InvalidInputException(EXPECTED, line);
-
             char charAtPosition = this.gameState.getGrid()[input];
             if (charAtPosition != '_') throw new InvalidInputException(EXPECTED, line);
 
@@ -145,10 +144,6 @@ public class Referee extends MultiReferee {
 
     @Override
     protected void prepare(int round) {
-        this.gameState.reset();
-        for (PlayerData player : players) {
-            player.reset();
-        }
     }
 
     @Override
